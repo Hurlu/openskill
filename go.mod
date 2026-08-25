@@ -1,4 +1,4 @@
-module github.com/eullerpereira94/openskill
+module github.com/hurlu/openskill
 
 go 1.20
 
