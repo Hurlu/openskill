@@ -25,7 +25,7 @@ func PredictWin(teams []Team, options *Options) []float64 {
 		})
 
 		return lo.Sum(lo.Map(filteredRatings, func(localItem *teamRating, localIndex int) float64 {
-			return cdf((item.TeamMu - localItem.TeamMu) / math.Sqrt(n*betaSq+math.Pow(item.TeamSigmaSq, 2)+math.Pow(localItem.TeamSigmaSq, 2)))
+			return cdf((item.TeamMu - localItem.TeamMu) / math.Sqrt(n*betaSq+item.TeamSigmaSq+localItem.TeamSigmaSq))
 		})) / denom
 	})
 }
