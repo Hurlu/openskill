@@ -50,7 +50,7 @@ func PredictDraw(teams []Team, options *Options) float64 {
 		})
 
 		return lo.Map(filteredRatings, func(localItem *teamRating, localIndex int) float64 {
-			sigmaBar := math.Sqrt(n*betaSq + math.Pow(item.TeamSigmaSq, 2) + math.Pow(localItem.TeamSigmaSq, 2))
+			sigmaBar := math.Sqrt(n*betaSq + item.TeamSigmaSq + localItem.TeamSigmaSq)
 			return cdf((drawMargin-item.TeamMu+localItem.TeamMu)/sigmaBar) - cdf((item.TeamMu-localItem.TeamMu-drawMargin)/sigmaBar)
 		})
 	})

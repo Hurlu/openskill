@@ -83,7 +83,7 @@ func PredictRank(teams []Team, options *Options) (predictions [][]float64) {
 		muB := currentRatings[1].TeamMu
 		sigmaB := currentRatings[1].TeamSigmaSq
 
-		sigmaBar := math.Sqrt(n*betaSq + math.Pow(sigmaA, 2) + math.Pow(sigmaB, 2))
+		sigmaBar := math.Sqrt(n*betaSq + sigmaA + sigmaB)
 		winProb := cdf((muA - muB - drawMargin) / sigmaBar)
 		winProbs[matchup[0]] += winProb
 	}
