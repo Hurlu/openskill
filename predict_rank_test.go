@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/eullerpereira94/openskill"
+	"github.com/hurlu/openskill"
 )
 
 func TestRankDataMin(t *testing.T) {
